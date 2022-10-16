@@ -5,8 +5,10 @@
 int main()
 {
 	char *ptr;
+	char buf[1024];
 	int shmid=shmget(KEY,100,0);
 	ptr=shmat(shmid,NULL,0);
-	strcpy(ptr,"Hi");
+	printf("Enter a message : %s",buf);
+	strcpy(ptr,buf);
 	shmdt(ptr);
 }
