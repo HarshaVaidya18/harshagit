@@ -67,7 +67,27 @@
 5)Similarly, In chid process, we close the write fd and and read the data that is send from the parent using the read fd.
 
 *********************************task14********************************
-1)
+1)In this program, We establish communication between two processes using shared memory.
+2)Here, one process creates a shared memory in the user space of RAM and attaches itself to the shared memory.
+3)The other process directly attaches itself to the shared memory using shmat().
+4)This shared memory is identified by a unique key which is unique for each shared memory.
+5)Once the processes attaches itself to the shared memory, They can place their message in the shared memory and the other process can read the data from that shared memory.
+6)But, This method of IPC has no synchronization.
 *********************************task15********************************
+1)In this program, We use semaphore sets, which is a synchronization mechanism.
+2)Semaphore is a counter which is accessed by multiple processes and perform operations using this semaphore counter.
+3)When a process writes a message into a shared memory/message queue, That process increments the semaphore counter value by 1.
+4)When the other process reads the data from that shared memory/message queue, That process decrements the semaphore counter value by 1.
+5)In this way, We can achieve synchronization between processes.
+
 *********************************task16********************************
+1)In this program, We establish communication between two process using message queues.
+2)Message queues are nothing but queues of messages qhich are maintained by kernel.
+3)These messages are placed in queue by a process and other process can access the message directly from the message queue.
+
+
 *********************************task17********************************
+1)In this program, We print even numbers in one thread and odd numbers in one thread using conditional variables.
+2)Conditional variables are also synchronization mechanism just like mutex variables.
+3)When a thread locks a mutex variable and conditional variable, it stays in locked position until other process sends a signal, i.e., when the other thread uses pthread_cond_signal() call.
+4)Then the other threads gets awaken and continues its execution.
