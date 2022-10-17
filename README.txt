@@ -53,9 +53,21 @@
 6)Finally the data are swapped between both the files.
 
 *********************************task12********************************
-1)
-*********************************task13********************************
+1)In this program we have to print even and odd numbers from two different threads but without using mutex.
+2)Without any synchronization machanism like mutex, here we just use a blocking call like sleep().
+3)In this case, The threads goes into blocking state after printing a number and hands over the execution to the other thread and vic versa. 
+4)The numbers are printed from the two threads alternatively.
+
+*********************************task13*******************************
+1)In this program, we need to send a message from parent process to child process.
+2)For this, here we are using the pipe() IPC mechanism.
+3)Pipes are used to send data between two related processes.
+4)pipe() returns 2 fd's. One is the read fd and the other is write fd.
+5)In parent process we close the read fd and write into a buffer and send a message to child using write fd.
+5)Similarly, In chid process, we close the write fd and and read the data that is send from the parent using the read fd.
+
 *********************************task14********************************
+1)
 *********************************task15********************************
 *********************************task16********************************
 *********************************task17********************************
