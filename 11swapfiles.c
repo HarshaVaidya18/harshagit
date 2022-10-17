@@ -24,8 +24,8 @@ int main(int argc,char *argv[])
 	ret=read(fd2,buf2,1024);
 	buf2[ret]='\0';
 	printf("Content of Second file : %s\n",buf2);
-	ftruncate(fd1,0);
-	ftruncate(fd2,0);
+	truncate(argv[1],0);
+	truncate(argv[2],0);
 	ret=write(fd1,buf2,strlen(buf2));
 	ret=write(fd2,buf1,strlen(buf1));
 	printf("AFTER SWAPPING\n");
@@ -37,6 +37,8 @@ int main(int argc,char *argv[])
         ret=read(fd2,buf4,1024);
         buf4[ret]='\0';
         printf("Content of Second file : %s\n",buf4);
+        close(fd1);
+        close(fd2);
 }
 
 
