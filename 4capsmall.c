@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<pthread.h>
-void *pthread_small(char *);
-void *large(char *);
+void *small_thread(char *);
+void *large_thread(char *);
 void main()
 {
 	int *ptr;
@@ -10,28 +10,28 @@ void main()
 	char str[25];
 	printf("enter the string\n");
 	scanf("%s",str);
-	pthread_create(&t1,NULL,pthread_small,&str);
-	pthread_create(&t2,NULL,large,str);
+	pthread_create(&t1,NULL,small_thread,&str);
+	pthread_create(&t2,NULL,large_thread,str);
 	pthread_join(t1,&ptr);
 	pthread_join(t2,NULL);
 }
-void *pthread_small(char *ptr)
+void *small_thread(char *ptr)
 {
 	int i;
 	for(i=0;ptr[i]!='\0';i++)
 	{
 		if(ptr[i]>=97 && ptr[i]<=122)	
-			printf("small letter: %c\n",ptr[i]);
+			printf("Small letters : %c\n",ptr[i]);
 		
 	}
 }
-void *large(char *ptr)
+void *large_thread(char *ptr)
 {
         int i;
         for(i=0;ptr[i]!='\0';i++)
         {
                 if(ptr[i]>=65 && ptr[i]<=90)
-                        printf("CAPITAL LETTER: %c\n",ptr[i]);
+                        printf("Capital letters : %c\n",ptr[i]);
 
         }
 }
